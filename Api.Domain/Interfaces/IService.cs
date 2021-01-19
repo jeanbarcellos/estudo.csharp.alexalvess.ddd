@@ -2,7 +2,7 @@ using Api.Domain.Entities;
 using FluentValidation;
 using System.Collections.Generic;
 
-namespace Modelo.Domain.Interfaces
+namespace Api.Domain.Interfaces
 {
     public interface IService<T> where T : BaseEntity
     {
