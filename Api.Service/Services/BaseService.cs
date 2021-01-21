@@ -9,11 +9,16 @@ namespace Api.Service.Services
 {
     public class BaseService<T> : IService<T> where T : BaseEntity
     {
-        private BaseRepository<T> repository = new BaseRepository<T>();
+        protected readonly IRepository<T> _repository;
+
+        public BaseService(IRepository<T> repository)
+        {
+            _repository = repository;
+        }
 
         public IList<T> Get()
         {
-            return repository.SelectAll();
+            return _repository.SelectAll();
         }
 
         public T Get(int id)
@@ -23,14 +28,15 @@ namespace Api.Service.Services
                 throw new ArgumentException("The id can't be zero.");
             }
 
-            return repository.Select(id);
+            return _repository.Select(id);
         }
 
         public T Post<V>(T obj) where V : AbstractValidator<T>
         {
             Validate(obj, Activator.CreateInstance<V>());
 
-            repository.Insert(obj);
+            _repository.Insert(obj);
+
             return obj;
         }
 
@@ -38,7 +44,8 @@ namespace Api.Service.Services
         {
             Validate(obj, Activator.CreateInstance<V>());
 
-            repository.Update(obj);
+            _repository.Update(obj);
+
             return obj;
         }
 
@@ -49,7 +56,7 @@ namespace Api.Service.Services
                 throw new ArgumentException("The id can't be zero.");
             }
 
-            repository.Remove(id);
+            _repository.Remove(id);
         }
 
         private void Validate(T obj, AbstractValidator<T> validator)
