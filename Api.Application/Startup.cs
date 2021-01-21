@@ -1,10 +1,14 @@
 using Api.Infra.Data.Context;
+using Api.Infra.Data.Repositories;
+using Api.Domain.Interfaces;
+using Api.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application
 {
@@ -20,7 +24,11 @@ namespace Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<DataContext, DataContext>();
+            services.AddDbContext<DataContext>(opts => opts.UseNpgsql(Configuration.GetConnectionString("Default")));
+            services.AddScoped<DataContext>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IService<>), typeof(BaseService<>));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
