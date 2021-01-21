@@ -28,6 +28,8 @@ namespace Application
             services.AddScoped<DataContext>();
 
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<ICategoryService, CategoryService>();
+
             services.AddScoped(typeof(IService<>), typeof(BaseService<>));
 
             services.AddControllers();
