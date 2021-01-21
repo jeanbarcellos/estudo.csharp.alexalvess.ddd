@@ -1,23 +1,29 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Entities;
-using Api.Service.Services;
 using Api.Service.Validators;
+using Api.Domain.Interfaces;
 
 namespace Api.Application.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
-        private BaseService<User> service = new BaseService<User>();
+        private readonly IService<User> _service;
+
+        public UserController(IService<User> service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
+        [Route("")]
         public IActionResult Get()
         {
             try
             {
-                var list = service.Get();
+                var list = _service.Get();
 
                 return Ok(list);
             }
@@ -27,12 +33,13 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet]
+        [Route("{id:int}")]
         public IActionResult Get(int id)
         {
             try
             {
-                return new ObjectResult(service.Get(id));
+                return new ObjectResult(_service.Get(id));
             }
             catch (ArgumentException ex)
             {
@@ -45,11 +52,12 @@ namespace Api.Application.Controllers
         }
 
         [HttpPost]
+        [Route("")]
         public IActionResult Post([FromBody] User item)
         {
             try
             {
-                service.Post<UserValidator>(item);
+                _service.Post<UserValidator>(item);
 
                 return new ObjectResult(item.Id);
             }
@@ -64,11 +72,12 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
+        [Route("")]
         public IActionResult Put([FromBody] User item)
         {
             try
             {
-                service.Put<UserValidator>(item);
+                _service.Put<UserValidator>(item);
 
                 return new ObjectResult(item);
             }
@@ -83,11 +92,12 @@ namespace Api.Application.Controllers
         }
 
         [HttpDelete]
+        [Route("")]
         public IActionResult Delete(int id)
         {
             try
             {
-                service.Delete(id);
+                _service.Delete(id);
 
                 return new NoContentResult();
             }
