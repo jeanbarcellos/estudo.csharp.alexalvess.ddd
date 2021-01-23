@@ -6,7 +6,7 @@ namespace Api.Domain.Entities
     {
         public string Name { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         public string Cpf { get; set; }
     }

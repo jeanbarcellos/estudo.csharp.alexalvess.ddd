@@ -25,7 +25,8 @@ namespace Api.Infra.Data.Mapping
             builder.Property(c => c.BirthDate)
                 .IsRequired()
                 .HasColumnName("birth_date")
-                .HasColumnType("timestamp");
+                .HasMaxLength(128)
+                .HasColumnType("varchar(128)");
 
             builder.Property(c => c.Cpf)
                 .IsRequired()

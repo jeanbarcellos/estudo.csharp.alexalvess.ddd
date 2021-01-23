@@ -59,7 +59,8 @@ namespace Api.Application.Controllers
             {
                 _service.Post<UserValidator>(item);
 
-                return new ObjectResult(item.Id);
+                // return new ObjectResult(item.Id);
+                return Ok();
             }
             catch (ArgumentNullException ex)
             {
@@ -72,8 +73,8 @@ namespace Api.Application.Controllers
         }
 
         [HttpPut]
-        [Route("")]
-        public IActionResult Put([FromBody] User item)
+        [Route("{id:int}")]
+        public IActionResult Put(int id, [FromBody] User item)
         {
             try
             {
@@ -92,7 +93,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
+        [Route("{id:int}")]
         public IActionResult Delete(int id)
         {
             try
