@@ -1,16 +1,20 @@
-Repositório apenas para estudo
+_Repositório apenas para estudo_
 
 # Uma arquitetura, em .Net Core, baseada nos princípios do DDD
 
-By Alex Alves
+Instrutor:
+
+- [Alex Alves](https://alexalvess.medium.com/)
 
 Referencias:
 
 - https://alexalvess.medium.com/criando-uma-api-em-net-core-baseado-na-arquitetura-ddd-2c6a409c686
-
 - https://github.com/alexalvess/aurora-api-project
-
 - https://github.com/jeanbarcellos/estudo.csharp.marcosRosaSage.ddd
+
+<br>
+<br>
+<hr>
 
 ## Criação do Projeto
 
