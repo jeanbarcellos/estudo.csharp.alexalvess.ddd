@@ -59,8 +59,7 @@ namespace Api.Application.Controllers
             {
                 _service.Post<UserValidator>(item);
 
-                // return new ObjectResult(item.Id);
-                return Ok();
+                return new ObjectResult(item.Id);
             }
             catch (ArgumentNullException ex)
             {
