@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Api.Domain.Entities;
 
-namespace Api.Domain.Interfaces
+namespace Api.Domain.Interfaces.Repositories
 {
     public interface IRepository<T> where T : BaseEntity
     {

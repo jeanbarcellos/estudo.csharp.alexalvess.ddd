@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Api.Domain.Entities;
 using FluentValidation;
 
-namespace Api.Domain.Interfaces
+namespace Api.Domain.Interfaces.Services
 {
     public interface ICategoryService
     {
