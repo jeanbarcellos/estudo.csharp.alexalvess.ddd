@@ -1,7 +1,6 @@
 using System;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
-using Api.Service.Services;
+using Api.Domain.Interfaces.Services;
 using Api.Service.Validators;
 using Microsoft.AspNetCore.Mvc;
 

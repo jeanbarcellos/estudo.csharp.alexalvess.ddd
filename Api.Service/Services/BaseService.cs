@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Api.Domain.Entities;
-using Api.Domain.Interfaces;
-using Api.Infra.Data.Repositories;
+using Api.Domain.Interfaces.Repositories;
+using Api.Domain.Interfaces.Services;
 using FluentValidation;
 
 namespace Api.Service.Services

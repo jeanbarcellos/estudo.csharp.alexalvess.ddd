@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using Api.Domain.Entities;
 using Api.Service.Validators;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Services;
 
 namespace Api.Application.Controllers
 {

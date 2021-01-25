@@ -1,6 +1,7 @@
 using Api.Infra.Data.Context;
 using Api.Infra.Data.Repositories;
-using Api.Domain.Interfaces;
+using Api.Domain.Interfaces.Services;
+using Api.Domain.Interfaces.Repositories;
 using Api.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
