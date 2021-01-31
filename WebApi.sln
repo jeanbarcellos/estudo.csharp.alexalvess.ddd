@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Api.Application\Application.csproj", "{3E9FF848-9DC0-42EF-98AF-9CD15FEB9140}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Api.Application\Application.csproj", "{3E9FF848-9DC0-42EF-98AF-9CD15FEB9140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Api.Domain\Domain.csproj", "{CF054E03-3316-4831-9BFE-E46AA23097E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Api.Domain\Domain.csproj", "{CF054E03-3316-4831-9BFE-E46AA23097E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Api.Service\Service.csproj", "{E565D402-2988-498A-A6AC-C95FAB7B15C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "src\Api.Service\Service.csproj", "{E565D402-2988-498A-A6AC-C95FAB7B15C7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Api.Infra", "{4ADFEEAD-43F6-41B2-8DCE-D7E86D415263}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "src\Api.Infra", "{4ADFEEAD-43F6-41B2-8DCE-D7E86D415263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Api.Infra\Data\Data.csproj", "{C2F2A30A-8126-4076-A709-67212C47ED86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src\Api.Infra\Data\Data.csproj", "{C2F2A30A-8126-4076-A709-67212C47ED86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "Api.Infra\CrossCutting\CrossCutting.csproj", "{6189C785-9B21-4B8C-A638-3A496533BB0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "src\Api.Infra\CrossCutting\CrossCutting.csproj", "{6189C785-9B21-4B8C-A638-3A496533BB0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

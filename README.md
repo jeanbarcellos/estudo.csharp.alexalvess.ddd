@@ -18,6 +18,26 @@ Referencias:
 
 ## Criação do Projeto
 
+**Criar o diretório do projeto e acessá-lo**
+
+```bash
+mkdir Api-DDD
+
+cd Api-DDD
+```
+
+**Abrir o VS Code**
+
+```bash
+code .
+```
+
+**Criar o diretório `src/` (onde ficarão os projetos)**
+
+```bash
+mkdir src
+```
+
 **Criar solução**
 
 ```bash
@@ -27,35 +47,35 @@ dotnet new sln --name Api
 **Criar camada de Aplicação**
 
 ```bash
-dotnet new webapi -n Application -o Api.Application
-dotnet sln add Api.Application
+dotnet new webapi -n Application -o src/Api.Application
+dotnet sln add src/Api.Application
 ```
 
 **Criar camada de Dominio**
 
 ```bash
-dotnet new classlib -n Domain -o Api.Domain
-dotnet sln add Api.Domain
+dotnet new classlib -n Domain -o src/Api.Domain
+dotnet sln add src/Api.Domain
 ```
 
 **Criar camada de Serviço**
 
 ```bash
-dotnet new classlib -n Service -o Api.Service
-dotnet sln add Api.Data
+dotnet new classlib -n Service -o src/Api.Service
+dotnet sln add src/Api.Service
 ```
 
 **Criar camada de Infraestrutura**
 
 ```bash
-mkdir Api.Infra
-cd Api.Infra
+mkdir src/Api.Infra
+cd src/Api.Infra
 dotnet new classlib -n Data -o Data
-dotnet new classlib -n CrossCuting -o CrossCuting
+dotnet new classlib -n CrossCutting -o CrossCutting
 cd ..
 ```
 
-**Criar as Referências**
+**Criar as Referências (estando dentro da pasta `src/`)**
 
 ```
 dotnet add Api.Application reference Api.Domain
@@ -66,7 +86,7 @@ dotnet add Api.Service reference Api.Infra/Data
 dotnet add Api.Service reference Api.Infra/CrossCutting
 
 dotnet add Api.Infra/CrossCutting reference Api.Domain
-dotnet add Api.Infra/Data/ reference Api.Domain/
+dotnet add Api.Infra/Data reference Api.Domain
 ```
 
 ## Implementação das camadas
@@ -85,6 +105,9 @@ Criação dos diretórios:
 
 - Entities
 - Interfaces
+
+<br>
+<br>
 
 ### Camada Infra/Data
 
@@ -112,9 +135,15 @@ No diretório `Repositories`, desenvolve-se uma classe chamada `BaseRepository`
 
 - A intenção é de ter uma única classe, genérica, para realizar o CRUD, onde pode-se passar uma entidade T para ela, e essa classe irá trabalhar em cima dessa entidade. Herda-se a interface IRepository, onde obriga-se a classe a implementar os métodos que definiu-se anteriormente na camada de domínio.
 
+<br>
+<br>
+
 ### Camada Infra/CrossCutting
 
 Essa camada não será implementada nesse projeto, mas pode-se desenvolver nela, por exemplo, a validação de CPF e o consumo uma API de terceiro, além de outras funcionalidades que considera-se ser utilitária.
+
+<br>
+<br>
 
 ### Camada Service
 
@@ -140,6 +169,18 @@ No diretório `Services`, desenvolve-se uma classe chamada `BaseService`
 
 Na pasta `Validators`, cria-se uma classe chamada `UsuarioValidator`, a qual será utilizada para validar toda a entidade de usuário.
 
+<br>
+<br>
+
 ### Camada Application
 
 Esta camada é a “porta de entrada” do sistema, pois é nela que conterá os controladores e serviços para efetuar as chamadas na API.
+
+<br>
+<br>
+
+### Excutar o projeto
+
+```
+dotnet watch -p src/Api.Application/Application.csproj  run
+```
