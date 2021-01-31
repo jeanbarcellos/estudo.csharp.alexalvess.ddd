@@ -179,7 +179,13 @@ Esta camada é a “porta de entrada” do sistema, pois é nela que conterá os
 <br>
 <br>
 
-### Excutar o projeto
+## Bando de dados
+
+- Este projeto foi criado com a modelagem de dados realizada antes do código (Database First).
+
+O dump sql encontra-se na paste `database`
+
+## Excutar o projeto
 
 ```
 dotnet watch -p src/Api.Application/Application.csproj  run
